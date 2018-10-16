@@ -1,0 +1,15 @@
+---
+- hosts: localhost
+  gather_facts: False
+
+  tasks:
+    - name: copy .custom_sh to home directory
+      copy:
+        src: ./files/.custom_sh
+        dest: ~/.custom_sh
+
+    - name: include .custom_sh in users .zshrc
+      lineinfile:
+        path: ~/.zshrc
+        state: present
+        line: . ~/.custom_sh
