@@ -1,0 +1,11 @@
+---
+- name: copy .custom_sh to home directory
+  copy:
+    src: custom_sh
+    dest: ~/.custom_sh
+
+- name: include .custom_sh in users .zshrc
+  lineinfile:
+    path: ~/.zshrc
+    state: present
+    line: . ~/.custom_sh
