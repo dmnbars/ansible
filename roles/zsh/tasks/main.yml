@@ -1,4 +1,10 @@
 ---
+- name: install zsh
+  become: yes
+  apt:
+    name: zsh
+    state: latest
+
 - name: change shell to zsh
   become: yes
   user:
