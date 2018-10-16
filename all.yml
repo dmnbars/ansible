@@ -1,4 +1,4 @@
 ---
 - hosts: localhost
   roles:
-    - { role: zsh, tags: ['zsh'] }
+    - { role: oh-my-zsh, tags: ['oh-my-zsh'] }
