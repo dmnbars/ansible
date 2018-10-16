@@ -1,4 +1,10 @@
 ---
+- name: change shell to zsh
+  become: yes
+  user:
+    name: "{{ ansible_env['USER'] }}"
+    shell: /bin/zsh
+
 - name: copy .custom_sh to home directory
   copy:
     src: custom_sh
