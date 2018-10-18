@@ -1,9 +1,16 @@
 ---
-- name: install zsh
+- name: install zsh for MacOS
+  package:
+    name: zsh
+    state: latest
+  when: ansible_facts['distribution'] == 'MacOSX'
+
+- name: install zsh for not MacOS
   become: yes
   package:
     name: zsh
     state: latest
+  when: ansible_facts['distribution'] != 'MacOSX'
 
 - name: change shell to zsh
   become: yes
