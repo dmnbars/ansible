@@ -1,0 +1,6 @@
+---
+- name: install guake
+  become: yes
+  package:
+    name: guake
+    state: latest
