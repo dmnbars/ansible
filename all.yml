@@ -1,4 +1,8 @@
 ---
-- hosts: localhost
+- hosts: local
   roles:
     - { role: oh-my-zsh, tags: ['oh-my-zsh'] }
+
+- hosts: local
+  roles:
+    - { role: sublime, tags: ['sublime'] }

@@ -1,1 +1,2 @@
 hass
+local ansible_connection=local
