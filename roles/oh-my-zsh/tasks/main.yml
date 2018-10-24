@@ -1,16 +1,9 @@
 ---
-- name: install zsh for MacOS
-  package:
-    name: zsh
-    state: latest
-  when: ansible_facts['distribution'] == 'MacOSX'
-
 - name: install zsh for not MacOS
   become: yes
   package:
     name: zsh
     state: latest
-  when: ansible_facts['distribution'] != 'MacOSX'
 
 - name: change shell to zsh
   become: yes
@@ -23,7 +16,7 @@
     src: custom_sh
     dest: ~/.custom_sh
 
-- name: include .custom_sh in users .zshrc
+- name: include custom_sh in users .zshrc
   lineinfile:
     path: ~/.zshrc
     state: present
