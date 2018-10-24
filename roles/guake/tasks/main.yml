@@ -1,0 +1,13 @@
+---
+- name: install guake
+  become: yes
+  package:
+    name: guake
+    state: latest
+
+- name: start guake at startup
+  become: yes
+  file:
+    src: /usr/share/applications/guake.desktop
+    path: /etc/xdg/autostart/guake.desktop
+    state: link

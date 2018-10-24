@@ -1,0 +1,6 @@
+---
+- hosts: local
+  roles:
+    - apps
+    - sublime
+    - guake
