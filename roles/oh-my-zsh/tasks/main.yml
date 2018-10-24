@@ -1,5 +1,5 @@
 ---
-- name: install zsh for not MacOS
+- name: install zsh
   become: yes
   package:
     name: zsh
