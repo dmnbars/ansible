@@ -2,15 +2,6 @@
 - hosts: local
   roles:
     - { role: apps, tags: ['apps'] }
-
-- hosts: local
-  roles:
     - { role: oh-my-zsh, tags: ['oh-my-zsh'] }
-
-- hosts: local
-  roles:
     - { role: sublime, tags: ['sublime'] }
-
-- hosts: local
-  roles:
     - { role: guake, tags: ['guake'] }
