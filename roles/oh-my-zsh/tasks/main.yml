@@ -5,19 +5,24 @@
     name: zsh
     state: latest
 
+- name: clone oh-my-zsh
+  git:
+    repo: https://github.com/robbyrussell/oh-my-zsh.git
+    dest: ~/.oh-my-zsh
+
+- name: create new zsh configuration file
+  copy:
+    src: ~/.oh-my-zsh/templates/zshrc.zsh-template
+    dest: ~/.zshrc
+    force: no
+
 - name: change shell to zsh
   become: yes
   user:
     name: "{{ ansible_env['USER'] }}"
     shell: /bin/zsh
 
-- name: copy .custom_sh to home directory
-  copy:
-    src: custom_sh
-    dest: ~/.custom_sh
-
-- name: include custom_sh in users .zshrc
-  lineinfile:
+- name: added custom_zshrc
+  blockinfile:
     path: ~/.zshrc
-    state: present
-    line: . ~/.custom_sh
+    block: "{{ lookup('file', 'custom_zshrc') }}"
