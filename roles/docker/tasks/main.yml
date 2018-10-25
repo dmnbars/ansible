@@ -16,3 +16,15 @@
   package:
     name: docker-ce
     state: latest
+
+- name: ensure group "docker" exists
+  group:
+    name: docker
+    state: present
+
+- name: add currenct user to docker group
+  become: yes
+  user:
+    name: "{{ ansible_env['USER'] }}"
+    groups: docker
+    append: yes
