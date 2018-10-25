@@ -5,3 +5,4 @@
     - { role: oh-my-zsh, tags: ['oh-my-zsh'] }
     - { role: sublime, tags: ['sublime'] }
     - { role: guake, tags: ['guake'] }
+    - { role: docker, tags: ['docker'] }
