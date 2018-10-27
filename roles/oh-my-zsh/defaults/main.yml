@@ -1,0 +1,7 @@
+---
+zsh_rewrite_config: true
+oh_my_zsh_plugins:
+  - sublime
+  - sudo
+  - common-aliases
+  - git

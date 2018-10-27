@@ -11,18 +11,13 @@
     dest: ~/.oh-my-zsh
 
 - name: create new zsh configuration file
-  copy:
-    src: ~/.oh-my-zsh/templates/zshrc.zsh-template
+  template:
+    src: zshrc.zsh-template.j2
     dest: ~/.zshrc
-    force: no
+  when: zsh_rewrite_config
 
 - name: change shell to zsh
   become: yes
   user:
     name: "{{ ansible_env['USER'] }}"
     shell: /bin/zsh
-
-- name: added custom_zshrc
-  blockinfile:
-    path: ~/.zshrc
-    block: "{{ lookup('file', 'custom_zshrc') }}"

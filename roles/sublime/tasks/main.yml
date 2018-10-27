@@ -21,5 +21,4 @@
   copy:
     src: Preferences.sublime-settings
     dest: ~/.config/sublime-text-3/Packages/User/Preferences.sublime-settings
-    force: yes
   when: sublime_rewrite_config

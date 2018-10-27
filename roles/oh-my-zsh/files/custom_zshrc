@@ -1,7 +1,0 @@
-#git
-alias glh="git pull origin"
-alias gph="git push origin"
-alias gfh="git fetch origin"
-
-# Delete all merged branches
-alias delete_old_branches="git branch --merged | egrep -v \"(^\*|master)\" | xargs git branch -d"
