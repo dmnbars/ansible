@@ -6,3 +6,8 @@
     - { role: sublime, tags: ['sublime'] }
     - { role: guake, tags: ['guake'] }
     - { role: docker, tags: ['docker'] }
+
+- hosts: hass
+  roles:
+    - { role: hass-update, tags: ['hass-update'] }
+    - { role: hass-deploy, tags: ['hass-deploy'] }
