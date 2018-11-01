@@ -1,4 +1,18 @@
 ---
-- name: not implemented
-  debug:
-    msg: not implemented
+- name: apt update && upgrade
+  become: yes
+  apt:
+    update_cache: yes
+    upgrade: full
+
+- name: stop hass
+  become: yes
+  systemd:
+    name: home-assistant@homeassistant.service
+    state: stopped
+
+- name: start hass
+  become: yes
+  systemd:
+    name: home-assistant@homeassistant.service
+    state: started

@@ -8,6 +8,7 @@
     - { role: docker, tags: ['docker'] }
 
 - hosts: hass
+  gather_facts: no
   roles:
     - { role: hass-update, tags: ['hass-update'] }
     - { role: hass-deploy, tags: ['hass-deploy'] }
