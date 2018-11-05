@@ -1,4 +1,15 @@
 ---
-- name: not implemented
-  debug:
-    msg: not implemented
+- name: clone oh-my-zsh
+  become: yes
+  become_user: homeassistant
+  git:
+    repo: https://github.com/dmnbars/hass.git
+    dest: ~/.homeassistant
+  register: hass_code_updated
+
+- name: restart hass
+  become: yes
+  systemd:
+    name: home-assistant@homeassistant.service
+    state: restarted
+  when: hass_code_updated.changed
