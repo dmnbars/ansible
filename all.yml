@@ -7,7 +7,7 @@
     - { role: guake, tags: ['guake'] }
     - { role: docker, tags: ['docker'] }
 
-- hosts: hass
+- hosts: hass_r
   gather_facts: no
   roles:
     - { role: hass-update, tags: ['hass-update'] }
