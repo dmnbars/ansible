@@ -1,10 +1,10 @@
 ---
-- name: clone oh-my-zsh
+- name: clone code
   become: yes
   become_user: homeassistant
   git:
     repo: https://github.com/dmnbars/hass.git
-    dest: ~/.homeassistant
+    dest: "{{ project_path }}"
     version: "{{ hass_code_branch }}"
   register: hass_code_updated
 
