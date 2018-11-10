@@ -1,6 +1,19 @@
 ---
 - name: dev deploy hass
   block:
-    - debug:
-        msg: "hass dev deploy"
+    # fix this (always - changed)
+    - name: deploy dev code
+      synchronize:
+        src: "{{ hass_dev_code_path }}"
+        dest: "{{ hass_project_path }}"
+      notify:
+        - restart hass
+
+    - name: fix owner
+      file:
+        path: "{{ hass_project_path }}"
+        owner: "{{ hass_user }}"
+        group: "{{ hass_user }}"
+        recurse: yes
+  when: hass_dev_code_path is not none
   tags: hass-dev-deploy
