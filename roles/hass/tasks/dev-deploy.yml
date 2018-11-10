@@ -1,0 +1,6 @@
+---
+- name: dev deploy hass
+  block:
+    - debug:
+        msg: "hass dev deploy"
+  tags: hass-dev-deploy

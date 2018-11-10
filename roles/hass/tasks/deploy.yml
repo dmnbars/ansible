@@ -1,0 +1,13 @@
+---
+- name: deploy hass
+  block:
+    - name: clone code
+      become: yes
+      become_user: "{{ hass_user }}"
+      git:
+        repo: https://github.com/dmnbars/hass.git
+        dest: "{{ hass_project_path }}"
+        version: "{{ hass_code_branch }}"
+      notify:
+        - restart hass
+  tags: hass-deploy

@@ -1,0 +1,33 @@
+---
+- name: update hass
+  block:
+    - name: apt update && upgrade
+      become: yes
+      apt:
+        update_cache: yes
+        upgrade: full
+
+    - name: stop hass
+      become: yes
+      systemd:
+        name: home-assistant@homeassistant.service
+        state: stopped
+
+    - name: get homeassistant shell
+      user:
+        name: "{{ hass_user }}"
+      register: homeassistant_user
+
+    - name: update hass
+      become: yes
+      become_user: "{{ hass_user }}"
+      shell: source /srv/homeassistant/bin/activate && pip3 install --upgrade homeassistant && exit
+      args:
+        executable: "{{ homeassistant_user.shell }}"
+
+    - name: start hass
+      become: yes
+      systemd:
+        name: home-assistant@homeassistant.service
+        state: started
+  tags: hass-update

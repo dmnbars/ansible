@@ -1,0 +1,4 @@
+- hosts: hass_r
+  gather_facts: no
+  roles:
+    - role: hass
