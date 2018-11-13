@@ -6,18 +6,25 @@
     state: latest
 
 - name: clone oh-my-zsh
+  become: yes
+  become_user: "{{ item }}"
   git:
     repo: https://github.com/robbyrussell/oh-my-zsh.git
     dest: ~/.oh-my-zsh
+  with_items: "{{ oh_my_zsh_users }}"
 
 - name: create new zsh configuration file
+  become: yes
+  become_user: "{{ item }}"
   template:
     src: zshrc.zsh-template.j2
     dest: ~/.zshrc
+  with_items: "{{ oh_my_zsh_users }}"
   when: zsh_rewrite_config
 
 - name: change shell to zsh
   become: yes
   user:
-    name: "{{ ansible_env['USER'] }}"
+    name: "{{ item }}"
     shell: /bin/zsh
+  with_items: "{{ oh_my_zsh_users }}"

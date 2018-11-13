@@ -1,0 +1,10 @@
+- hosts: local
+  vars:
+    oh_my_zsh_users:
+      - "{{ ansible_env['USER'] }}"
+  roles:
+    - { role: oh-my-zsh, tags: ['local'] }
+
+- hosts: hass_r
+  roles:
+    - { role: oh-my-zsh, tags: ['hass'] }
