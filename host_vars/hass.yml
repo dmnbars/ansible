@@ -3,6 +3,4 @@ hass_code_branch: master
 hass_project_path: /home/homeassistant/.homeassistant
 hass_user: homeassistant
 oh_my_zsh_users:
-  - root
   - pi
-  - homeassistant
