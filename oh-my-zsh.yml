@@ -3,8 +3,8 @@
     oh_my_zsh_users:
       - "{{ ansible_env['USER'] }}"
   roles:
-    - { role: oh-my-zsh, tags: ['local'] }
+    - { role: oh-my-zsh }
 
-- hosts: hass_r
+- hosts: hass
   roles:
-    - { role: oh-my-zsh, tags: ['hass'] }
+    - { role: oh-my-zsh }

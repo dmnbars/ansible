@@ -5,6 +5,12 @@
     name: zsh
     state: latest
 
+- name: install git
+  become: yes
+  package:
+    name: git
+    state: latest
+
 - name: clone oh-my-zsh
   become: yes
   become_user: "{{ item }}"
