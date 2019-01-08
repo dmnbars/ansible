@@ -1,15 +1,12 @@
 ---
-- name: install zsh
+- name: install deps
   become: yes
   package:
-    name: zsh
+    name: "{{ item }}"
     state: latest
-
-- name: install git
-  become: yes
-  package:
-    name: git
-    state: latest
+  with_items:
+    - zsh
+    - git
 
 - name: clone oh-my-zsh
   become: yes
