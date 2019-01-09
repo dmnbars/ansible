@@ -1,6 +1,0 @@
----
-- name: restart hass
-  become: yes
-  systemd:
-    name: home-assistant@homeassistant.service
-    state: restarted
